@@ -2,12 +2,11 @@ const { stringConnection } = require('../databaseConfig');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const server = require('http');
-const io = require('scoket.io')(server);
 
 const app = express();
 
-server.Server(app);
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
 
 mongoose.connect(stringConnection, {
   useNewUrlParser: true,
