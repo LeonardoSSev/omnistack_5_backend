@@ -1,6 +1,7 @@
 const { stringConnection } = require('../databaseConfig');
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const server = require('http');
 const io = require('scoket.io')(server);
 
@@ -19,7 +20,7 @@ app.use((req, res, next) => {
   return next();
 });
 
-
+app.use(cors());
 app.use(express.json());
 app.use(require('./routes'));
 
